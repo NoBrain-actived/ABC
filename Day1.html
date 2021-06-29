@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="./hello.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .circle{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            position: absolute;
+            transition: all .3s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            border: none;
+            background: black;
+        }
+        .circle:hover{
+            transform: scale(3);
+            background: grey;
+        }
+        button{
+            position: fixed;
+            z-index: 999999999999999999999999999;
+        }
+    </style>
+  <button onclick="run()">Action</button>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <script>
+      let list= Array.from(document.getElementsByClassName("circle"));
+      list.map(x=> setColor(x));
+      setInterval(function(){
+        list.map(x => logKey(x));
+      },500);
+      
+      function setColor(element){
+         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+         var randomColor = Math.floor(Math.random()*16777215).toString(16);
+         var randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
+         element.style.background="#"+randomColor;
+         element.innerText=randomChar;
+      }
+
+      function logKey(element) {
+         var x = element.offsetLeft;
+         var y = element.offsetTop;
+         var speed = 120;
+         var array = [37,38,39,40];
+         var action = array[Math.floor(Math.random() * array.length)];
+         switch(action){
+             //Left
+             case 37: 
+                x-=speed;
+                element.style.left= x + "px";
+                break;
+             //Top
+             case 38:
+                y-=speed;
+                element.style.top= y + "px";
+                break;
+             //Right
+             case 39: 
+                x += speed;
+                element.style.left= x + "px";
+                break;
+             //Bottom
+             case 40: 
+                y+=speed;
+                element.style.top= y + "px";
+                break;
+         }
+      }
+  </script>
+ 
+</body>
+
+</html>
